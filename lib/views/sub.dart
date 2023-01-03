@@ -126,7 +126,7 @@ class _SubState extends State<Sub> {
               return AlertDialog(
                 title: const Text('Help'),
                 content: const Text(
-                    'To substract two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 - 11000101.'),
+                    'To subtract two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 - 11000101.'),
                 actions: <Widget>[
                   ElevatedButton(
                     child: const Text('Close'),

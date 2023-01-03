@@ -85,7 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  child: const Text('Sum'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                  ),
+                  child: const Text('Sum', style: TextStyle(color: Colors.black),),
                   onPressed: () {
                     pressed = true;
                     setState(() {});

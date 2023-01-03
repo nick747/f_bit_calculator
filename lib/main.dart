@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './views/eight_bit.dart';
-import './views/four_bit.dart';
 import 'dart:convert';
 
 void main() {

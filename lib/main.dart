@@ -55,15 +55,15 @@ int _currentIndex = 0;
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.red,
+        selectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.circle),
-            label: 'To Roman',
+            label: 'Sum',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.circle),
-            label: 'To Arab',
+            label: 'Sub',
           ),
         ],
       ),

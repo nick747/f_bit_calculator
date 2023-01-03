@@ -64,7 +64,7 @@ class _SubState extends State<Sub> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                   ),
-                  child: const Text('Sum', style: TextStyle(color: Colors.black),),
+                  child: const Text('Sub', style: TextStyle(color: Colors.black),),
                   onPressed: () {
                     pressed = true;
                     setState(() {});
@@ -106,8 +106,8 @@ class _SubState extends State<Sub> {
               child: Text(
                 pressed
                     ? showDecimal
-                        ? decimalSum(bin_1.text, bin_2.text).toString()
-                        : binarySum(bin_1.text, bin_2.text)
+                        ? decimalSub(bin_1.text, bin_2.text).toString()
+                        : binarySub(bin_1.text, bin_2.text)
                     : 'Insert a number',
                 style: TextStyle(
                     fontSize: 30,
@@ -126,7 +126,7 @@ class _SubState extends State<Sub> {
               return AlertDialog(
                 title: const Text('Help'),
                 content: const Text(
-                    'To sum two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 + 11000101.'),
+                    'To substract two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 - 11000101.'),
                 actions: <Widget>[
                   ElevatedButton(
                     child: const Text('Close'),
@@ -153,25 +153,30 @@ bool isBinary(String s) {
   return regex.hasMatch(s);
 }
 
-String binarySum(String a, String b) {
+String binarySub(String a, String b) {
   if (!isBinary(a) || !isBinary(b)) {
     return 'Error';
   }
+  String subString = '';
 
   int aInt = int.parse(a, radix: 2);
   int bInt = int.parse(b, radix: 2);
-  int sumInt = aInt + bInt;
-  String sumString = sumInt.toRadixString(2).padLeft(4, '0');
-  return sumString;
+  int subInt = aInt - bInt;
+  if (subInt.isNegative) {
+    subString = subInt.toRadixString(2).padLeft(4, '0');
+  } else {
+    subString = subInt.toRadixString(2).padLeft(4, '0');
+  }
+  return subString;
 }
 
-int? decimalSum(String a, String b) {
+int? decimalSub(String a, String b) {
   if (!isBinary(a) || !isBinary(b)) {
     return null;
   }
 
   int aInt = int.parse(a, radix: 2);
   int bInt = int.parse(b, radix: 2);
-  int sumInt = aInt + bInt;
+  int sumInt = aInt - bInt;
   return sumInt;
 }

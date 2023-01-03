@@ -115,7 +115,8 @@ class _EightBitState extends State<EightBit> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.help),
+        child: Icon(Icons.help, color: Colors.grey[850],),
+        backgroundColor: Colors.white,
         onPressed: () {
           showDialog(
             context: context,

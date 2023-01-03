@@ -112,7 +112,8 @@ class _FourBitState extends State<FourBit> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.help),
+        child: Icon(Icons.help, color: Colors.grey[850],),
+        backgroundColor: Colors.white,
         onPressed: () {
           showDialog(
             context: context,

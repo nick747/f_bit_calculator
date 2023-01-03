@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import './views/sum.dart';
+import './views/sub.dart';
 import 'dart:convert';
 
 void main() {
@@ -30,143 +32,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final bin_1 = TextEditingController();
-  final bin_2 = TextEditingController();
-  bool showDecimal = false;
-  bool pressed = false;
+int _currentIndex = 0;
+  static List<Widget> pages = <Widget>[
+    const Sum(),
+    const Sub(),
+  ];
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bits-Adder'),
+        title: const Text('Bits Adder'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: bin_1,
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  onPressed: bin_1.clear,
-                  icon: const Icon(Icons.clear),
-                ),
-                hintText: 'First Number',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.00),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: bin_2,
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  onPressed: bin_2.clear,
-                  icon: const Icon(Icons.clear),
-                ),
-                hintText: 'Second Number',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.00),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                  ),
-                  child: const Text('Sum', style: TextStyle(color: Colors.black),),
-                  onPressed: () {
-                    pressed = true;
-                    setState(() {});
-                  },
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                const Text('Bin'),
-                const SizedBox(
-                  width: 5,
-                ),
-                Switch(
-                  value: showDecimal,
-                  onChanged: (value) {
-                    setState(() {
-                      showDecimal = value;
-                    });
-                  },
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                const Text('Dec'),
-              ],
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 3.5,
-                  color: pressed ? Colors.grey : Colors.white,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                pressed
-                    ? showDecimal
-                        ? decimalSum(bin_1.text, bin_2.text).toString()
-                        : binarySum(bin_1.text, bin_2.text)
-                    : 'Insert a number',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.help,
-          color: Colors.grey[850],
-        ),
-        backgroundColor: Colors.white,
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text('Help'),
-                content: const Text(
-                    'To sum two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 + 11000101.'),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: const Text('Close'),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              );
-            },
-          );
-        },
+      body: pages[_currentIndex],
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.red,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.circle),
+            label: 'To Roman',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.circle),
+            label: 'To Arab',
+          ),
+        ],
       ),
     );
   }

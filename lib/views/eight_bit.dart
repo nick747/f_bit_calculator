@@ -114,6 +114,28 @@ class _EightBitState extends State<EightBit> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.help),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Help'),
+                content: const Text('To sum two binary numbers insert them in the textfield (the least significant digit should be on the right), for example: \n 10111001 + 11000101.'),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: const Text('Close'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

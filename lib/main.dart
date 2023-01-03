@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import './views/sum.dart';
 import './views/sub.dart';
+import './views/mol.dart';
 import 'dart:convert';
 
 void main() {
@@ -36,6 +37,7 @@ int _currentIndex = 0;
   static List<Widget> pages = <Widget>[
     const Sum(),
     const Sub(),
+    const Mol(),
   ];
 
   void _onItemTapped(int index) {
@@ -65,36 +67,12 @@ int _currentIndex = 0;
             icon: Icon(Icons.circle),
             label: 'Sub',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.circle),
+            label: 'Molt',
+          ),
         ],
       ),
     );
   }
-}
-
-bool isBinary(String s) {
-  RegExp regex = RegExp(r'^[01]+$');
-  return regex.hasMatch(s);
-}
-
-String binarySum(String a, String b) {
-  if (!isBinary(a) || !isBinary(b)) {
-    return 'Error';
-  }
-
-  int aInt = int.parse(a, radix: 2);
-  int bInt = int.parse(b, radix: 2);
-  int sumInt = aInt + bInt;
-  String sumString = sumInt.toRadixString(2).padLeft(4, '0');
-  return sumString;
-}
-
-int? decimalSum(String a, String b) {
-  if (!isBinary(a) || !isBinary(b)) {
-    return null;
-  }
-
-  int aInt = int.parse(a, radix: 2);
-  int bInt = int.parse(b, radix: 2);
-  int sumInt = aInt + bInt;
-  return sumInt;
 }

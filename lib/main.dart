@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bits-Adder',
+      title: 'Bit Calculator',
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Bits-Adder'),
+      home: const MyHomePage(title: 'Bit Calculator'),
     );
   }
 }
@@ -47,7 +47,7 @@ int _currentIndex = 0;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bits Adder'),
+        title: const Text('Bit Calculator'),
         centerTitle: true,
       ),
       body: pages[_currentIndex],

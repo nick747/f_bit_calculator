@@ -83,7 +83,7 @@ class _ConvState extends State<Conv> {
                     onPressed: bin.clear,
                     icon: const Icon(Icons.clear),
                   ),
-                  hintText: 'Binary',
+                  hintText: 'Binary Number',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.00),
                   ),

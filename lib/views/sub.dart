@@ -9,7 +9,6 @@ class Sub extends StatefulWidget {
 }
 
 class _SubState extends State<Sub> {
-
   final bin_1 = TextEditingController();
   final bin_2 = TextEditingController();
   bool showDecimal = false;
@@ -65,7 +64,10 @@ class _SubState extends State<Sub> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                     ),
-                    child: const Text('Sub', style: TextStyle(color: Colors.black),),
+                    child: const Text(
+                      'Sub',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {
                       pressed = true;
                       setState(() {});

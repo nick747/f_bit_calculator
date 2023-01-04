@@ -10,7 +10,6 @@ class Conv extends StatefulWidget {
 }
 
 class _ConvState extends State<Conv> {
-
   final num = TextEditingController();
   final bin = TextEditingController();
   // bool showDecimal = false;
@@ -45,14 +44,17 @@ class _ConvState extends State<Conv> {
                 height: 20,
               ),
               ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                    ),
-                    child: const Text('Convert', style: TextStyle(color: Colors.black),),
-                    onPressed: () {
-                      pressed = true;
-                      setState(() {});
-                    },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                child: const Text(
+                  'Convert',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onPressed: () {
+                  pressed = true;
+                  setState(() {});
+                },
               ),
               const SizedBox(
                 height: 20,
@@ -67,7 +69,9 @@ class _ConvState extends State<Conv> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
-                  pressed ? toBinary(int.parse(num.text)) : 'Insert a number', // : toDecimal(bin.text).toString()
+                  pressed
+                      ? toBinary(int.parse(num.text))
+                      : 'Insert a number', // : toDecimal(bin.text).toString()
                   style: TextStyle(
                       fontSize: 20,
                       fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
@@ -93,14 +97,17 @@ class _ConvState extends State<Conv> {
                 height: 20,
               ),
               ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                    ),
-                    child: const Text('Convert', style: TextStyle(color: Colors.black),),
-                    onPressed: () {
-                      pressed2 = true;
-                      setState(() {});
-                    },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                child: const Text(
+                  'Convert',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onPressed: () {
+                  pressed2 = true;
+                  setState(() {});
+                },
               ),
               const SizedBox(
                 height: 20,
@@ -167,7 +174,7 @@ String toBinary(int d) {
     binary = ((d % 2).toString()) + binary;
     d = d ~/ 2;
   }
-  
+
   return binary;
 }
 
@@ -184,9 +191,9 @@ num? toDecimal(String bin) {
     } else {
       dec += 0;
     }
-    
+
     power++;
   }
-  
+
   return dec;
 }

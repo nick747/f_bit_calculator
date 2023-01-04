@@ -9,7 +9,6 @@ class Sum extends StatefulWidget {
 }
 
 class _SumState extends State<Sum> {
-
   final bin_1 = TextEditingController();
   final bin_2 = TextEditingController();
   bool showDecimal = false;
@@ -65,7 +64,10 @@ class _SumState extends State<Sum> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                     ),
-                    child: const Text('Sum', style: TextStyle(color: Colors.black),),
+                    child: const Text(
+                      'Sum',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {
                       pressed = true;
                       setState(() {});

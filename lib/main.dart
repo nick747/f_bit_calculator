@@ -34,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-int _currentIndex = 0;
+  int _currentIndex = 0;
   static List<Widget> pages = <Widget>[
     const Conv(),
     const Sum(),
@@ -47,6 +47,7 @@ int _currentIndex = 0;
       _currentIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +56,6 @@ int _currentIndex = 0;
         centerTitle: true,
       ),
       body: pages[_currentIndex],
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,

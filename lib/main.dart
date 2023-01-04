@@ -60,6 +60,7 @@ int _currentIndex = 0;
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
         selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[600],
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.circle),

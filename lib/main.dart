@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import './views/sum.dart';
 import './views/sub.dart';
 import './views/mol.dart';
+import './views/conv.dart';
 import 'dart:convert';
 
 void main() {
@@ -35,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 int _currentIndex = 0;
   static List<Widget> pages = <Widget>[
+    const Conv(),
     const Sum(),
     const Sub(),
     const Mol(),
@@ -59,6 +61,10 @@ int _currentIndex = 0;
         onTap: _onItemTapped,
         selectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.circle),
+            label: 'Conv',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.circle),
             label: 'Sum',

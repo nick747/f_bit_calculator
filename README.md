@@ -1,3 +1,3 @@
-# Bits Adder
+# Bit Calculator
 
-Flutter App that gives the sum of two binary numbers. You can view the sum in binary form or decimal form
+Simple flutter apps that works as a convertitor binary <-> decimal, and as a sort of calculator between binary values

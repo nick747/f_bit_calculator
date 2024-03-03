@@ -52,14 +52,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bit Calculator'),
+        backgroundColor: Colors.black,
+        title: const Text('Bit Calculator',),
         centerTitle: true,
       ),
-      body: pages[_currentIndex],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: pages[_currentIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
         selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.circle),

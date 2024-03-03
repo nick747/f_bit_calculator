@@ -17,108 +17,105 @@ class _SumState extends State<Sum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              TextField(
-                controller: bin_1,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: bin_1.clear,
-                    icon: const Icon(Icons.clear),
-                  ),
-                  hintText: 'First Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.00),
-                  ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: bin_1,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: bin_1.clear,
+                  icon: const Icon(Icons.clear),
+                ),
+                hintText: 'First Number',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.00),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextField(
-                controller: bin_2,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: bin_2.clear,
-                    icon: const Icon(Icons.clear),
-                  ),
-                  hintText: 'Second Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.00),
-                  ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: bin_2,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: bin_2.clear,
+                  icon: const Icon(Icons.clear),
+                ),
+                hintText: 'Second Number',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.00),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                    ),
-                    child: const Text(
-                      'Sum',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    onPressed: () {
-                      pressed = true;
-                      setState(() {});
-                    },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
                   ),
-                  const SizedBox(
-                    width: 30,
+                  child: const Text(
+                    'Sum',
+                    style: TextStyle(color: Colors.black),
                   ),
-                  const Text('Bin'),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Switch(
-                    value: showDecimal,
-                    onChanged: (value) {
-                      setState(() {
-                        showDecimal = value;
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  const Text('Dec'),
-                ],
-              ),
-              const SizedBox(
-                height: 75,
-              ),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 3.5,
-                    color: pressed ? Colors.grey : Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
+                  onPressed: () {
+                    pressed = true;
+                    setState(() {});
+                  },
                 ),
-                child: Text(
-                  pressed
-                      ? showDecimal
-                          ? decimalSum(bin_1.text, bin_2.text).toString()
-                          : binarySum(bin_1.text, bin_2.text)
-                      : 'Insert a number',
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
+                const SizedBox(
+                  width: 30,
                 ),
+                const Text('Bin'),
+                const SizedBox(
+                  width: 5,
+                ),
+                Switch(
+                  value: showDecimal,
+                  onChanged: (value) {
+                    setState(() {
+                      showDecimal = value;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                const Text('Dec'),
+              ],
+            ),
+            const SizedBox(
+              height: 75,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 3.5,
+                  color: pressed ? Colors.grey : Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(8),
               ),
-            ],
-          ),
+              child: Text(
+                pressed
+                    ? showDecimal
+                        ? decimalSum(bin_1.text, bin_2.text).toString()
+                        : binarySum(bin_1.text, bin_2.text)
+                    : 'Insert a number',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

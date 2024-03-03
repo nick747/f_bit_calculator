@@ -19,117 +19,114 @@ class _ConvState extends State<Conv> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              TextField(
-                controller: num,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: num.clear,
-                    icon: const Icon(Icons.clear),
-                  ),
-                  hintText: 'Decimal Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.00),
-                  ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: num,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: num.clear,
+                  icon: const Icon(Icons.clear),
+                ),
+                hintText: 'Decimal Number',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.00),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
+              child: const Text(
+                'Convert',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                pressed = true;
+                setState(() {});
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 3.5,
+                  color: pressed ? Colors.grey : Colors.white,
                 ),
-                child: const Text(
-                  'Convert',
-                  style: TextStyle(color: Colors.black),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                pressed
+                    ? toBinary(int.parse(num.text))
+                    : 'Insert a number', // : toDecimal(bin.text).toString()
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            TextField(
+              controller: bin,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: bin.clear,
+                  icon: const Icon(Icons.clear),
                 ),
-                onPressed: () {
-                  pressed = true;
-                  setState(() {});
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 3.5,
-                    color: pressed ? Colors.grey : Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  pressed
-                      ? toBinary(int.parse(num.text))
-                      : 'Insert a number', // : toDecimal(bin.text).toString()
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              TextField(
-                controller: bin,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: bin.clear,
-                    icon: const Icon(Icons.clear),
-                  ),
-                  hintText: 'Binary Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.00),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                ),
-                child: const Text(
-                  'Convert',
-                  style: TextStyle(color: Colors.black),
-                ),
-                onPressed: () {
-                  pressed2 = true;
-                  setState(() {});
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 3.5,
-                    color: pressed2 ? Colors.grey : Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  pressed2 ? toDecimal(bin.text).toString() : 'Insert a number',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
+                hintText: 'Binary Number',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.00),
                 ),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+              ),
+              child: const Text(
+                'Convert',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                pressed2 = true;
+                setState(() {});
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 3.5,
+                  color: pressed2 ? Colors.grey : Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                pressed2 ? toDecimal(bin.text).toString() : 'Insert a number',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: GoogleFonts.getFont('Fira Mono').fontFamily),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

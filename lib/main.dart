@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import './views/sum.dart';
 import './views/sub.dart';
 import './views/mol.dart';
 import './views/conv.dart';
-import 'dart:convert';
 
 void main() {
   runApp(const MyApp());
